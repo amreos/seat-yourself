@@ -1,4 +1,5 @@
 class Restaurant < ActiveRecord::Base
+	has_many :reservations, :timeslots
 
 	validates :name,
 	  presence: true,
