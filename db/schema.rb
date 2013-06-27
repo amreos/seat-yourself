@@ -11,15 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130626152516) do
+ActiveRecord::Schema.define(version: 20130627141342) do
 
   create_table "reservations", force: true do |t|
     t.integer  "user_id"
     t.integer  "restaurant_id"
-    t.integer  "timeslot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "party_size"
+    t.date     "date"
+    t.time     "time"
   end
+
+  add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id", unique: true
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", unique: true
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
@@ -32,17 +37,5 @@ ActiveRecord::Schema.define(version: 20130626152516) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone_number"
-    t.integer  "points",          default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password_digest"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
