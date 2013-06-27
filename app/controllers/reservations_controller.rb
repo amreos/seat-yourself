@@ -9,12 +9,9 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    # date = params[:reservation][:date]
-    # time = params[:reservation][:time]
-    
+    @reservation = Reservation.new(reservations_params)
 
-    # @reservation = Reservation.new()
-
+    flash.now[:notice] = "Reservation created!"
     redirect_to @restaurant
   end
 
@@ -31,6 +28,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservations_params
-    params.require(:reservation).permit(:party_size)
+    params.require(:reservation).permit(:party_size, :date, :time)
   end
 end
