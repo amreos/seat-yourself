@@ -38,8 +38,14 @@ end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use Devise for user auth
+# Use Devise for user authentication
 gem "devise", "~> 3.0.0.rc"
+
+# Use CanCan for user authorization
+gem "cancan", "~> 1.6.10"
+
+# Use Rolify for managing user roles
+gem "rolify", "~> 3.3.0.rc4"
 
 # Use unicorn as the app server
 # gem 'unicorn'
