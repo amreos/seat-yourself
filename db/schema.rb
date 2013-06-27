@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130627185015) do
+ActiveRecord::Schema.define(version: 20130627204911) do
 
   create_table "reservations", force: true do |t|
     t.integer  "user_id"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20130627185015) do
     t.time     "time"
   end
 
-  add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id", unique: true
-  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", unique: true
+  add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id"
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
 
   create_table "restaurants", force: true do |t|
     t.string   "name"

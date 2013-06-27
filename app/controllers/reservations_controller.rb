@@ -9,10 +9,24 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(reservations_params)
+    date = Date.parse(params[:reservation][:date])
+    time = DateTime.parse(params[:reservation][:time])
 
-    flash.now[:notice] = "Reservation created!"
-    redirect_to @restaurant
+    @reservation = Reservation.new(
+      party_size: params[:reservation][:party_size],
+      date: date,
+      time: time,
+      restaurant_id: params[:restaurant_id],
+      user_id: current_user.id
+    )
+
+    if @reservation.save
+      flash.now[:notice] = "Reservation created!"
+      redirect_to @restaurant
+    else
+      flash.now[:alert] = "I'm sorry, your reservation couldn't be processed."
+      render 'new'
+    end
   end
 
   def destroy

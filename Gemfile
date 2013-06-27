@@ -47,6 +47,9 @@ gem "cancan", "~> 1.6.10"
 # Use Rolify for managing user roles
 gem "rolify", "~> 3.3.0.rc4"
 
+# Use Pry for debugging
+gem "pry-rails", "~> 0.3.1", group: :development
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
