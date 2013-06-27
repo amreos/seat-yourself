@@ -6,13 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(name: "Example User",
-						email: "example@example.com",
-						phone_number: "555-555-5555",
-						password: "foobar",
-						password_confirmation: "foobar")
+# User.create(name: "Example User",
+# 						email: "example@example.com",
+# 						phone_number: "555-555-5555",
+# 						password: "foobar",
+# 						password_confirmation: "foobar")
 
 Restaurant.create(name: "Black Hoof",
+									image: "http://s3-media3.ak.yelpcdn.com/bphoto/V02PeFRwQd7WIwTRpihrMA/l.jpg",
 									address: "928 Dundas Street W, Toronto, ON M6J 1W3",
 									neighbourhood: "Little Italy",
 									price_range: "$$$",
@@ -21,6 +22,7 @@ Restaurant.create(name: "Black Hoof",
 									category: "Gastro Pubs")
 
 Restaurant.create(name: "Khao San Road",
+									image: "http://s3-media1.ak.yelpcdn.com/bphoto/9pH4ff_FwDlZSt4mxAzj_Q/l.jpg",
 									address: "326 Adelaide Street W, Toronto, ON M5V 1R3",
 									neighbourhood: "Business District",
 									price_range: "$$",
@@ -29,6 +31,7 @@ Restaurant.create(name: "Khao San Road",
 									category: "Thai")
 
 Restaurant.create(name: "Banh Mi Boys",
+									image: "http://s3-media3.ak.yelpcdn.com/bphoto/oG8uUQ4o-t_blodLUFbzGw/l.jpg",
 									address: "392 Queen Street W, Toronto, ON M5V 2A9",
 									neighbourhood: "Queen Street West",
 									price_range: "$",

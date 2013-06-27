@@ -1,2 +1,13 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<h1>Restaurants</h1>
+<% @restaurants.each do |rest| %>
+<ul class="thumbnails">
+  <li class="span4">
+    <div class="thumbnail">
+    	<%= link_to rest do %>
+    	  <%= image_tag rest.image, size: "300x200", alt: rest.name %>
+	      <h3><%= rest.name %></h3>
+	    <% end %>
+      <p><%= rest.price_range %> | <%= rest.neighbourhood %> | <%= rest.category %></p>
+    </div>
+  </li>
+<% end %>

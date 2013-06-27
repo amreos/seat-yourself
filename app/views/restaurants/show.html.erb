@@ -1,2 +1,12 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<div class="rest-image">
+	<%= image_tag @restaurant.image, size: "300x200", alt: @restaurant.name %>
+</div>
+<div class="rest-info">
+	<h1><%= @restaurant.name %></h1>
+	<h3><%= @restaurant.address %></h3>
+	<div class="rest-button">
+		<%= link_to "Make Reservation", '#',  class: "btn btn-info", type: "button" %>
+	</div>
+	<p><%= @restaurant.price_range %> | <%= @restaurant.neighbourhood %> | <%= @restaurant.category %> | 		<%= link_to "Menu", @restaurant.menu %></p>
+	<p><%= @restaurant.summary %></p>
+</div>

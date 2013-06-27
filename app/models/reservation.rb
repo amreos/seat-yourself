@@ -1,6 +1,9 @@
 class Reservation < ActiveRecord::Base
-	has_one :user_id, :restaurant_id, :timeslot_id
+	attr_accessor :date, :time
 
-	validates :user_id, :restaurant_id, :timeslot_id,
+	has_one :user_id
+	has_one :restaurant_id
+
+	validates :user_id, :restaurant_id, 
 		presence: true
 end
