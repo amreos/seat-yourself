@@ -10,9 +10,9 @@
 <body>
 	<%= render 'layouts/header' %>
   <div class="container clearfix">
-  	<% if flash[:notice] %> 
+  	<% if flash.now[:notice] %> 
 	  	<p class="notice"><%= flash[:notice] %></p>
-	  <% elsif flash[:alert] %>
+	  <% elsif flash.now[:alert] %>
   	  <p class="alert"><%= flash[:alert] %></p>
   	<% end %>
     

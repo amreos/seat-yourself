@@ -1,13 +1,22 @@
 SeatYourself::Application.routes.draw do
+  
+  get "static_pages/help"
+  get "static_pages/about"
+
+  authenticated :user do 
+    get '/', to: "restaurants#index"
+  end
+
+  get '/', to: "static_pages#home"
+
   devise_for :users
-  root :to => "restaurants#index"
+  resources :users
 
   resources :restaurants, only: [:index, :show] do
     resources :reservations, shallow: true
   end
 
 
-  get "users/new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
