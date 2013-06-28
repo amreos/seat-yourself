@@ -2,7 +2,8 @@ class ReservationsController < ApplicationController
   before_filter :load_restaurant
 
   def index
-    @reservations = Reservation.where(restaurant_id: @restaurant.id, datetime: (DateTime.now)..(DateTime.now + 7))
+    @reservations = Reservation.where(restaurant_id: @restaurant.id,
+                                      datetime: (DateTime.now)..(DateTime.now + 7))
   end
 
   def show
@@ -37,6 +38,12 @@ class ReservationsController < ApplicationController
       return
     end
 
+    if restaurant_full?(@reservation.datetime)
+      flash[:alert] = "I'm sorry, we're full at that time."
+      redirect_to new_restaurant_reservation_path
+      return
+    end
+
     if @reservation.save 
       current_user.update_attributes points: add_points(@reservation.party_size)
       UserMailer.reservation_confirmation(current_user).deliver
@@ -56,9 +63,18 @@ class ReservationsController < ApplicationController
 
   private
 
-  # def reservations_for_the_week
-  #   @restaurant.reservations
-  # end
+  def restaurant_full?(requested_datetime)
+    total_reservations(requested_datetime) + @reservation.party_size > 99
+  end
+
+  def total_reservations(requested_datetime)
+    @reservations = Reservation.where(restaurant_id: @restaurant.id,
+                                      datetime: requested_datetime)
+
+    people_in_restaurant = 0
+    @reservations.each { |reservation| people_in_restaurant += reservation.party_size }
+    people_in_restaurant
+  end
 
   def load_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
