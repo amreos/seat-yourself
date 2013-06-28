@@ -17,7 +17,7 @@ User.create(name: "Alex Naser",
 						password_confirmation: "12345678")
 
 Restaurant.create(name: "Black Hoof",
-									image: "http://s3-media3.ak.yelpcdn.com/bphoto/V02PeFRwQd7WIwTRpihrMA/l.jpg",
+									image: "http://s3-media2.ak.yelpcdn.com/bphoto/YE2HY7EI5iBe4LYBAHoBpA/l.jpg",
 									address: "928 Dundas Street W, Toronto, ON M6J 1W3",
 									neighbourhood: "Little Italy",
 									price_range: "$$$",
@@ -44,7 +44,7 @@ Restaurant.create(name: "Banh Mi Boys",
 									category: "Vietnamese")
 
 Restaurant.create(name: "Grand Electric",
-									image: "http://s3-media3.ak.yelpcdn.com/bphoto/V02PeFRwQd7WIwTRpihrMA/l.jpg",
+									image: "http://s3-media1.ak.yelpcdn.com/bphoto/DqG_QP1vldlmuw4JevCVWw/l.jpg",
 									address: "1330 Queen Street W, Toronto, ON M6K 1L4",
 									neighbourhood: "Parkdale",
 									price_range: "$$",
