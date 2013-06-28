@@ -21,7 +21,8 @@ class ReservationsController < ApplicationController
     )
 
     if @reservation.save
-      flash.now[:notice] = "Reservation created!"
+      current_user.update_attributes points: add_points(@reservation.party_size)
+      flash[:notice] = "Reservation created!"
       redirect_to @restaurant
     else
       flash.now[:alert] = "I'm sorry, your reservation couldn't be processed."
@@ -43,5 +44,9 @@ class ReservationsController < ApplicationController
 
   def reservations_params
     params.require(:reservation).permit(:party_size, :date, :time)
+  end
+
+  def add_points(party_size)
+    current_user.points + (@reservation.party_size * 25)
   end
 end

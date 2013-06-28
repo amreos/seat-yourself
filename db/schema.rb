@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130627204911) do
+ActiveRecord::Schema.define(version: 20130628003548) do
 
   create_table "reservations", force: true do |t|
     t.integer  "user_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20130627204911) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.integer  "points",                 default: 0
+    t.integer  "points",                 default: 50
     t.string   "phone_number"
   end
 
