@@ -31,7 +31,13 @@ class ReservationsController < ApplicationController
       user_id: current_user.id
     )
 
-    if @reservation.save
+    if @reservation.invalid_time_slot?
+      flash[:alert] = "Wrong timeslot"
+      redirect_to new_restaurant_reservation_path      
+      return
+    end
+
+    if @reservation.save 
       current_user.update_attributes points: add_points(@reservation.party_size)
       UserMailer.reservation_confirmation(current_user).deliver
       flash[:notice] = "Reservation created!"
