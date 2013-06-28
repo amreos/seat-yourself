@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
+
+
 User.create(name: "Alex Naser",
 						email: "c.a.naser@gmail.com",
 						phone_number: "555-555-5555",
@@ -38,3 +42,30 @@ Restaurant.create(name: "Banh Mi Boys",
 									summary: "The place is chaotic like a fast food place at lunch time.  Get over it.",
 									menu: "http://www.banhmiboys.com/menu.htm",
 									category: "Vietnamese")
+
+Restaurant.create(name: "Grand Electric",
+									image: "http://s3-media3.ak.yelpcdn.com/bphoto/V02PeFRwQd7WIwTRpihrMA/l.jpg",
+									address: "1330 Queen Street W, Toronto, ON M6K 1L4",
+									neighbourhood: "Parkdale",
+									price_range: "$$",
+									summary: "Back home visiting Toronto and I'm afraid that my reviews might tend to be overrated. I was waffling between 4 and 5 stars, but when that happens I let the food speak to whether it goes up or down. The food here was fantastic. I loved everything I tasted and being a party of 4 and adventurous, we tried a lot of the menu. The standouts for me were the pork tinga and baha fish tacos.",
+									menu: "http://grandelectricbar.com/",
+									category: "Mexican")
+
+Restaurant.create(name: "Ruby Watchco",
+									image: "http://s3-media2.ak.yelpcdn.com/bphoto/6Ik8dx4M2Rl4VysnIZaVig/l.jpg",
+									address: "730 Queen Street E, Toronto, ON M4M 1H2",
+									neighbourhood: "Riverdale",
+									price_range: "$$$",
+									summary: "Delicious! Expensive but delicious. Celerity chef Lynne Crawford was working the night we were there. Our bartender/server was awesome. Food was delicious, wine was delicious, filtered water (Q Water), friendly staff... Such a great experience!",
+									menu: "http://rubywatchco.ca/",
+									category: "Canadian")
+
+Restaurant.create(name: "Bak Chang Dong Soon Tofu",
+									image: "http://s3-media2.ak.yelpcdn.com/bphoto/qcXD7uJUyTvR4p5QTXeZUw/l.jpg",
+									address: "691 Bloor St W, Toronto, ON M6G 1L3",
+									neighbourhood: "Koreatown",
+									price_range: "$",
+									summary: "I yelped this place and the food was amazing!! I am from India and it was my first time eating authentic Korean and I loved it enough to give it 5 stars. My Korean who is visiting here from Seoul food helped me decide what to eat. & even she said the food was REALLY GOOD and very authentic. Korean Grill house is very Canadian-ised  I can see the difference now. ",
+									menu: "http://dicks.com",
+									category: "Korean")

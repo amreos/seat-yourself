@@ -50,6 +50,12 @@ gem "rolify", "~> 3.3.0.rc4"
 # Use Pry for debugging
 gem "pry-rails", "~> 0.3.1", group: :development
 
+# use nokogiri for scrapping our seed data.
+gem "nokogiri", "~> 1.6.0"
+
+# use open-uri to open uri for seed data
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
