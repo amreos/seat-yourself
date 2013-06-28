@@ -1,5 +1,6 @@
 <h1><%= @user.name %></h1>
-<h3>
-	User Email: <%= @user.email %></br>
-	Number of Points: <%= @user.points %> 
-</h3>
+<h4>
+	<%= link_to @user.email, "mailto:#{@user.email}" %></br>
+	<%= @user.phone_number %></br>
+	<%= @user.points %> points
+</h4>

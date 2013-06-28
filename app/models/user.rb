@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reservations
+  has_many :restaurants, through: :reservations
 
   def add_points
   	self[:points] = (self[:points] + 50)
