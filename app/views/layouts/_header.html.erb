@@ -1,9 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-	<div class="navbar-inner">
+	<div class="navbar-inner" id="custom-nav">
 		<div class="container">
-	    <%= link_to "Seat Yourself", '/' %>
+	    <%= link_to "seat yourself", '/', id: "logo" %>
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav pull-right" id="nav-colors">
           <li><%= link_to "Home", '/' %></li>
           <li><%= link_to "Help", '#' %></li>
           <% if user_signed_in? %>
