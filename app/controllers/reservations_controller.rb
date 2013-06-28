@@ -22,6 +22,7 @@ class ReservationsController < ApplicationController
 
     if @reservation.save
       current_user.update_attributes points: add_points(@reservation.party_size)
+      UserMailer.reservation_confirmation(current_user).deliver
       flash[:notice] = "Reservation created!"
       redirect_to @restaurant
     else
