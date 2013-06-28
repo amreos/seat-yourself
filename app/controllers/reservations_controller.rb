@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
       date_integer_array[1],
       date_integer_array[2],
       date_integer_array[3],
-      date_integer_array[4],
+      00,
     )
     
     @reservation = Reservation.new(
@@ -31,7 +31,7 @@ class ReservationsController < ApplicationController
       user_id: current_user.id
     )
 
-    if @reservation.invalid_time_slot?
+    if @reservation.invalid_time_slot? || @reservation.before_now?
       flash[:alert] = "Wrong timeslot"
       redirect_to new_restaurant_reservation_path      
       return

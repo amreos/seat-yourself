@@ -2,10 +2,10 @@
 <%= form_for [@restaurant, @reservation] do |f| %>
 	
 	<%= f.label :party_size %>
-	<%= f.number_field :party_size %>
+	<%= f.number_field :party_size, value: 2 %>
 
 	<%= f.label :datetime %>
-	<%= f.datetime_select :datetime %></br>
+	<%= f.datetime_select :datetime, discard_minute: true, ampm: true %></br>
 
-	<%= f.submit %>
+	<%= f.submit class: "btn btn-large btn-success" %>
 <% end %>
