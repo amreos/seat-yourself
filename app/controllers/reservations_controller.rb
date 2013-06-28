@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_filter :load_restaurant
 
   def index
-    @reservations = Reservation.where(restaurant_id: @restaurant.id)
+    @reservations = Reservation.where(restaurant_id: @restaurant.id, datetime: (DateTime.now)..(DateTime.now + 7))
   end
 
   def show
@@ -15,6 +15,7 @@ class ReservationsController < ApplicationController
   def create
     date_string_array = params[:reservation].values[1..5] 
     date_integer_array = date_string_array.map { |d| d.to_i }
+    
     reservation_date = DateTime.new(
       date_integer_array[0],
       date_integer_array[1],
@@ -22,8 +23,7 @@ class ReservationsController < ApplicationController
       date_integer_array[3],
       date_integer_array[4],
     )
-
-
+    
     @reservation = Reservation.new(
       party_size: params[:reservation][:party_size],
       datetime: reservation_date,
@@ -49,6 +49,10 @@ class ReservationsController < ApplicationController
   end
 
   private
+
+  # def reservations_for_the_week
+  #   @restaurant.reservations
+  # end
 
   def load_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
