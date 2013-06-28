@@ -11,7 +11,13 @@ class ReservationsController < ApplicationController
   def create
     date_string_array = params[:reservation].values[1..5] 
     date_integer_array = date_string_array.map { |d| d.to_i }
-    reservation_date = DateTime.new(date_integer_array)
+    reservation_date = DateTime.new(
+      date_integer_array[0],
+      date_integer_array[1],
+      date_integer_array[2],
+      date_integer_array[3],
+      date_integer_array[4],
+    )
 
 
     @reservation = Reservation.new(
