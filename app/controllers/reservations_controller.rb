@@ -1,6 +1,10 @@
 class ReservationsController < ApplicationController
   before_filter :load_restaurant
 
+  def index
+    @reservations = Reservation.where(restaurant_id: @restaurant.id)
+  end
+
   def show
   end
 
