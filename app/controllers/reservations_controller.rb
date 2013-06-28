@@ -9,13 +9,14 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    date = Date.parse(params[:reservation][:date])
-    time = DateTime.parse(params[:reservation][:time])
+    date_string_array = params[:reservation].values[1..5] 
+    date_integer_array = date_string_array.map { |d| d.to_i }
+    reservation_date = DateTime.new(date_integer_array)
+
 
     @reservation = Reservation.new(
       party_size: params[:reservation][:party_size],
-      date: date,
-      time: time,
+      datetime: reservation_date,
       restaurant_id: params[:restaurant_id],
       user_id: current_user.id
     )
@@ -41,10 +42,6 @@ class ReservationsController < ApplicationController
 
   def load_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
-  end
-
-  def reservations_params
-    params.require(:reservation).permit(:party_size, :date, :time)
   end
 
   def add_points(party_size)
