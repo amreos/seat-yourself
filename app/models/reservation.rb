@@ -4,4 +4,6 @@ class Reservation < ActiveRecord::Base
 
 	validates :user_id, :restaurant_id, 
 		presence: true
+
+
 end
