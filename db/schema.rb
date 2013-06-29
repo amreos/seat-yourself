@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130628140713) do
+ActiveRecord::Schema.define(version: 20130629154400) do
 
   create_table "reservations", force: true do |t|
     t.integer  "user_id"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20130628140713) do
   add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20130628140713) do
     t.string   "name"
     t.integer  "points",                 default: 50
     t.string   "phone_number"
+    t.boolean  "owner?",                 default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
