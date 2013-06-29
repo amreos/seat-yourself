@@ -4,9 +4,13 @@
 <div class="rest-info">
 	<h1><%= @restaurant.name %></h1>
 	<h3><%= @restaurant.address %></h3>
-	<div class="rest-button">
-		<%= link_to "Make Reservation", new_restaurant_reservation_path(@restaurant.id),  class: "btn btn-info", type: "button" %>
-	</div>
-	<p><%= @restaurant.price_range %> | <%= @restaurant.neighbourhood %> | <%= @restaurant.category %> | 		<%= link_to "Menu", @restaurant.menu %></p>
+	<p>
+		<% if current_user.owner? %>
+			<%= button_to "Show Reservations", restaurant_reservations_path(@restaurant.id),  class: "btn btn-info", method: :get %>
+		<% else %>
+			<%= button_to "Make Reservation", new_restaurant_reservation_path(@restaurant.id),  class: "btn btn-info", method: :get %>
+		<% end %>
+	</p>
+	<p><%= @restaurant.price_range %> | <%= @restaurant.neighbourhood %> | <%= @restaurant.category.name %> | <%= link_to "Menu", @restaurant.menu %></p>
 	<p><%= @restaurant.summary %></p>
 </div>

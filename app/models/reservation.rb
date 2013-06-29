@@ -1,6 +1,4 @@
 class Reservation < ActiveRecord::Base
-	# before_save :validate_time_slot
-
 	belongs_to :user
 	belongs_to :restaurant
 

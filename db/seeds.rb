@@ -19,6 +19,13 @@ User.create(name: "Jared Phillips",
 						password: "12345678",
 						password_confirmation: "12345678")
 
+Category.create(name: "Gastro Pubs")
+Category.create(name: "Thai")
+Category.create(name: "Vietnamese")
+Category.create(name: "Mexican")
+Category.create(name: "Canadian")
+Category.create(name: "Korean")
+
 Restaurant.create(name: "Black Hoof",
 									image: "http://s3-media2.ak.yelpcdn.com/bphoto/YE2HY7EI5iBe4LYBAHoBpA/l.jpg",
 									address: "928 Dundas Street W, Toronto, ON M6J 1W3",
@@ -26,7 +33,7 @@ Restaurant.create(name: "Black Hoof",
 									price_range: "$$$",
 									summary: "If you love meat, you will LOVE The Black Hoof!! My friends and I tried many items on the menu and cannot recall a single one I didnt love!! So let's hone in on my faves!!!",
 									menu: "http://theblackhoof.com/",
-									category: "Gastro Pubs")
+									category_id: 1)
 
 Restaurant.create(name: "Khao San Road",
 									image: "http://s3-media1.ak.yelpcdn.com/bphoto/9pH4ff_FwDlZSt4mxAzj_Q/l.jpg",
@@ -35,7 +42,7 @@ Restaurant.create(name: "Khao San Road",
 									price_range: "$$",
 									summary: "The best pad thai in the city, I can't even bring myself to order anything else on the menu... and they do it hot if you ask. And I mean hot, not your typical namby pamby Toronto hot:) Chef special pad thai, man my mouth is watering just thinking about it. ",
 									menu: "http://www.khaosanroad.ca/documents/Khao%20San%20Road%20-%20Lunch%20Menu.pdf",
-									category: "Thai")
+									category_id: 2)
 
 Restaurant.create(name: "Banh Mi Boys",
 									image: "http://s3-media3.ak.yelpcdn.com/bphoto/oG8uUQ4o-t_blodLUFbzGw/l.jpg",
@@ -44,7 +51,7 @@ Restaurant.create(name: "Banh Mi Boys",
 									price_range: "$",
 									summary: "The place is chaotic like a fast food place at lunch time.  Get over it.",
 									menu: "http://www.banhmiboys.com/menu.htm",
-									category: "Vietnamese")
+									category_id: 3)
 
 Restaurant.create(name: "Grand Electric",
 									image: "http://s3-media1.ak.yelpcdn.com/bphoto/DqG_QP1vldlmuw4JevCVWw/l.jpg",
@@ -53,7 +60,7 @@ Restaurant.create(name: "Grand Electric",
 									price_range: "$$",
 									summary: "Back home visiting Toronto and I'm afraid that my reviews might tend to be overrated. I was waffling between 4 and 5 stars, but when that happens I let the food speak to whether it goes up or down. The food here was fantastic. I loved everything I tasted and being a party of 4 and adventurous, we tried a lot of the menu. The standouts for me were the pork tinga and baha fish tacos.",
 									menu: "http://grandelectricbar.com/",
-									category: "Mexican")
+									category_id: 4)
 
 Restaurant.create(name: "Ruby Watchco",
 									image: "http://s3-media2.ak.yelpcdn.com/bphoto/6Ik8dx4M2Rl4VysnIZaVig/l.jpg",
@@ -62,7 +69,7 @@ Restaurant.create(name: "Ruby Watchco",
 									price_range: "$$$",
 									summary: "Delicious! Expensive but delicious. Celerity chef Lynne Crawford was working the night we were there. Our bartender/server was awesome. Food was delicious, wine was delicious, filtered water (Q Water), friendly staff... Such a great experience!",
 									menu: "http://rubywatchco.ca/",
-									category: "Canadian")
+									category_id: 5)
 
 Restaurant.create(name: "Bak Chang Dong Soon Tofu",
 									image: "http://s3-media2.ak.yelpcdn.com/bphoto/qcXD7uJUyTvR4p5QTXeZUw/l.jpg",
@@ -71,4 +78,4 @@ Restaurant.create(name: "Bak Chang Dong Soon Tofu",
 									price_range: "$",
 									summary: "I yelped this place and the food was amazing!! I am from India and it was my first time eating authentic Korean and I loved it enough to give it 5 stars. My Korean who is visiting here from Seoul food helped me decide what to eat. & even she said the food was REALLY GOOD and very authentic. Korean Grill house is very Canadian-ised  I can see the difference now. ",
 									menu: "http://dicks.com",
-									category: "Korean")
+									category_id: 6)

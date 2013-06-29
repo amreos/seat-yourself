@@ -1,6 +1,7 @@
 class Restaurant < ActiveRecord::Base
 	has_many :reservations
 	has_many :users, through: :reservations
+	belongs_to :category
 
 	validates :name,
 	  presence: true,
@@ -20,7 +21,4 @@ class Restaurant < ActiveRecord::Base
 
 	validates :menu,
 	  presence: true
-
-	validates :category,
-		presence: true
 end

@@ -7,7 +7,7 @@
     	  <%= image_tag rest.image, size: "300x200", alt: rest.name %>
 	      <h3><%= rest.name %></h3>
 	    <% end %>
-      <p><%= rest.price_range %> | <%= rest.neighbourhood %> | <%= rest.category %></p>
+      <p><%= rest.price_range %> | <%= rest.neighbourhood %> | <%= rest.category.name %></p>
     </div>
   </li>
 <% end %>
