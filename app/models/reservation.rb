@@ -15,4 +15,8 @@ class Reservation < ActiveRecord::Base
 	def before_now?
 		self.datetime < DateTime.now
 	end
+
+	def formatted_time 
+		self.datetime.strftime("%A, %m/%d at %I:%M %p")
+	end
 end

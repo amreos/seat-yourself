@@ -1,6 +1,6 @@
 <h1>Reservations this week for <%= @restaurant.name %></h1>
 <% @reservations.each do |rest| %>
-	<h4>Date and Time: <%= rest.datetime %></h4>
+	<h4>Date and Time: <%= rest.formatted_time %></h4>
 	<p>Name: <%= rest.user.name %> | <%= rest.user.points %> points</p>
 	<p>Reservation for: <%= rest.party_size %></p>
 <% end %>

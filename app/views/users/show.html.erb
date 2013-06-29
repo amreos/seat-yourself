@@ -1,6 +1,22 @@
 <h1><%= @user.name %></h1>
-<h4>
-	<%= link_to @user.email, "mailto:#{@user.email}" %></br>
+	<%= link_to "Email", "mailto:#{@user.email}" %></br>
 	<%= @user.phone_number %></br>
-	<%= @user.points %> points
-</h4>
+	<strong><%= @user.points %> points</strong></br>
+	<% @user.reservations.each do |reservation| %>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+		 			<th>Reservations</th>
+		 		</tr>
+	 		</thead>
+			<tbody>
+				<tr>
+					<td><%= link_to reservation.restaurant.name, reservation.restaurant %></td>
+					<td><%= reservation.formatted_time %></td>
+					<td><%= reservation.party_size %></td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+

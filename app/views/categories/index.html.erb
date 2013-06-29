@@ -1,0 +1,9 @@
+
+<h1>Restaurants by Category</h1>
+<table class="table table-hover">
+	<% @categories.each do |category| %>
+		<tr>
+			<td><%= link_to category.name, category %></td>
+		</tr>
+	<% end %>
+</table>

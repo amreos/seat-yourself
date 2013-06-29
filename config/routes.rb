@@ -12,6 +12,8 @@ SeatYourself::Application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
 
+  resources :categories, only: [:index, :show]
+
   resources :restaurants, only: [:index, :show] do
     resources :reservations, shallow: true
     resources :users, only: [:index]

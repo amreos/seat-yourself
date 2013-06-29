@@ -1,4 +1,5 @@
 <h1>Restaurants</h1>
+<%= button_to "Show by Category", categories_path, class: "btn btn-primary", method: :get %>
 <ul class="thumbnails">
 <% @restaurants.each do |rest| %>
   <li class="span4">
@@ -7,7 +8,7 @@
     	  <%= image_tag rest.image, size: "300x200", alt: rest.name %>
 	      <h3><%= rest.name %></h3>
 	    <% end %>
-      <p><%= rest.price_range %> | <%= rest.neighbourhood %> | <%= rest.category.name %></p>
+      <p><%= rest.price_range %> | <%= rest.neighbourhood %> | <%= link_to rest.category.name, rest.category %></p>
     </div>
   </li>
 <% end %>
