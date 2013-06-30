@@ -13,21 +13,10 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
-  def create
-    date_string_array = params[:reservation].values[1..5] 
-    date_integer_array = date_string_array.map { |d| d.to_i }
-    
-    reservation_date = DateTime.new(
-      date_integer_array[0],
-      date_integer_array[1],
-      date_integer_array[2],
-      date_integer_array[3],
-      00,
-    )
-    
+  def create    
     @reservation = Reservation.new(
       party_size: params[:reservation][:party_size],
-      datetime: reservation_date,
+      datetime: parsed_datetime,
       restaurant_id: params[:restaurant_id],
       user_id: current_user.id
     )
@@ -38,7 +27,7 @@ class ReservationsController < ApplicationController
       return
     end
 
-    if restaurant_full?(@reservation.datetime)
+    if @restaurant.full?(@reservation.datetime, @reservation.party_size)
       flash[:alert] = "I'm sorry, we're full at that time."
       redirect_to new_restaurant_reservation_path
       return
@@ -46,7 +35,7 @@ class ReservationsController < ApplicationController
 
     if @reservation.save 
       current_user.update_attributes points: add_points(@reservation.party_size)
-      UserMailer.reservation_confirmation(current_user).deliver
+      # UserMailer.reservation_confirmation(current_user).deliver
       flash[:notice] = "Reservation created!"
       redirect_to @restaurant
     else
@@ -63,17 +52,17 @@ class ReservationsController < ApplicationController
 
   private
 
-  def restaurant_full?(requested_datetime)
-    total_reservations(requested_datetime) + @reservation.party_size > 99
-  end
-
-  def total_reservations(requested_datetime)
-    @reservations = Reservation.where(restaurant_id: @restaurant.id,
-                                      datetime: requested_datetime)
-
-    people_in_restaurant = 0
-    @reservations.each { |reservation| people_in_restaurant += reservation.party_size }
-    people_in_restaurant
+  def parsed_datetime
+    date_string_array = params[:reservation].values[1..4] 
+    date_integer_array = date_string_array.map { |d| d.to_i }
+    
+    DateTime.new(
+      date_integer_array[0],
+      date_integer_array[1],
+      date_integer_array[2],
+      date_integer_array[3],
+      00,
+    )
   end
 
   def load_restaurant
