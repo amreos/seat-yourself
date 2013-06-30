@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
     )
 
     if @reservation.save 
-      current_user.update_attributes points: add_points(@reservation.party_size)
+      current_user.add_points(@reservation.points)
       # UserMailer.reservation_confirmation(current_user).deliver
       flash[:notice] = "Reservation created!"
       redirect_to @restaurant
@@ -36,6 +36,7 @@ class ReservationsController < ApplicationController
 
   private
 
+      # returns a local datetime
       def parsed_datetime      
         DateTime.civil_from_format(
           :local,
@@ -47,11 +48,8 @@ class ReservationsController < ApplicationController
           )
       end
 
+      # sets the restaurant for which the reservation is being made
       def load_restaurant
         @restaurant = Restaurant.find(params[:restaurant_id])
-      end
-
-      def add_points(party_size)
-        current_user.points + (@reservation.party_size * 25)
       end
 end

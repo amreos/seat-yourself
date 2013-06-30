@@ -16,7 +16,12 @@ class Reservation < ActiveRecord::Base
 		self.datetime.strftime("%A, %m/%d at %I:%M %p")
 	end
 
+	def points
+		self.points_multiplier * self.party_size
+	end
+
 	private
+
 			def restaurant_open
 				if (self.datetime.hour < self.restaurant.opening_hour || self.datetime.hour > self.restaurant.closing_hour)
 					errors.add(:datetime, "Our hours are 11a to 8p.")

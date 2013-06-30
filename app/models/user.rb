@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :reservations
   has_many :restaurants, through: :reservations
 
-  def add_points
-  	self[:points] = (self[:points] + 50)
+  def add_points(points)
+  	self.update_attributes(points: (self.points + points))
   end
 end

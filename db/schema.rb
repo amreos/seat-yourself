@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630044713) do
+ActiveRecord::Schema.define(version: 20130630145628) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20130630044713) do
     t.datetime "updated_at"
     t.integer  "party_size"
     t.datetime "datetime"
+    t.integer  "points_multiplier", default: 25
   end
 
   add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id"
