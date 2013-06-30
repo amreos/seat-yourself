@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630001306) do
+ActiveRecord::Schema.define(version: 20130630044713) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20130630001306) do
     t.string   "image"
     t.integer  "category_id"
     t.integer  "capacity",      default: 100
+    t.time     "opening_time",  default: '2000-01-01 15:00:00'
+    t.time     "closing_time",  default: '2000-01-01 23:00:00'
   end
 
   create_table "roles", force: true do |t|

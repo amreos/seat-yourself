@@ -15,10 +15,9 @@ class Reservation < ActiveRecord::Base
 	end
 
 	private
-
 			def restaurant_open
 				if (self.datetime.hour < 11 || self.datetime.hour > 19)
-					errors.add(:datetime, "I'm sorry, our hours are 11a to 8p.")
+					errors.add(:datetime, "Our hours are 11a to 8p.")
 				end
 			end
 
@@ -36,7 +35,7 @@ class Reservation < ActiveRecord::Base
 
 			def restaurant_not_full
 				if self.restaurant.full?(self.datetime, self.party_size)
-					errors.add(datetime: "I'm sorry, but we're full at that time.")
+					errors.add(:datetime, "We're full at that time.")
 		    end
 		  end
 end
