@@ -46,7 +46,7 @@ class Restaurant < ActiveRecord::Base
 				# preparing the counter
 				people_in_seats = 0
 
-				# adding all reservation
+				# adding all reservations
 				reservations_at_this_timeslot(datetime).each do |reservation|
 					people_in_seats += reservation.party_size
 				end
