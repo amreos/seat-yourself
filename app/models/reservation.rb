@@ -1,4 +1,6 @@
 class Reservation < ActiveRecord::Base
+	attr_accessor :date, :time
+
 	belongs_to :user
 	belongs_to :restaurant
 
@@ -16,7 +18,7 @@ class Reservation < ActiveRecord::Base
 
 	private
 			def restaurant_open
-				if (self.datetime.hour < 11 || self.datetime.hour > 19)
+				if (self.datetime.hour < self.restaurant.opening_hour || self.datetime.hour > self.restaurant.closing_hour)
 					errors.add(:datetime, "Our hours are 11a to 8p.")
 				end
 			end

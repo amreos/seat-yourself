@@ -24,7 +24,6 @@ class ReservationsController < ApplicationController
       flash[:notice] = "Reservation created!"
       redirect_to @restaurant
     else
-      # flash.now[:alert] = "I'm sorry, your reservation couldn't be processed."
       render 'new'
     end
   end
@@ -37,17 +36,15 @@ class ReservationsController < ApplicationController
 
   private
 
-      def parsed_datetime
-        date_string_array = params[:reservation].values[1..4] 
-        date_integer_array = date_string_array.map { |d| d.to_i }
-        
-        DateTime.new(
-          date_integer_array[0],
-          date_integer_array[1],
-          date_integer_array[2],
-          date_integer_array[3],
-          00,
-        )
+      def parsed_datetime      
+        DateTime.civil_from_format(
+          :local,
+          params[:reservation][:date].to_date.year,
+          params[:reservation][:date].to_date.month,
+          params[:reservation][:date].to_date.day,
+          params[:reservation][:time].to_time.hour,
+          00
+          )
       end
 
       def load_restaurant

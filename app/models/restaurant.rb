@@ -26,6 +26,14 @@ class Restaurant < ActiveRecord::Base
 		seats_left(datetime) <= requested_party_size
 	end
 
+	def opening_hour
+		self.opening_time.hour
+	end
+
+	def closing_hour
+		self.closing_time.hour
+	end
+
   private
  
 		  # calculates seats left at a given timeslot
