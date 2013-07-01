@@ -26,7 +26,7 @@ FactoryGirl.define do
 		created_at "2013-07-01 18:12:35" 
 		updated_at "2013-07-01 18:12:35" 
 		party_size 2 
-		datetime "2013-07-02 16:00:00" 
+		datetime "2013-07-02 16:00:00".to_datetime 
 		points_multiplier 25
 	end
 
