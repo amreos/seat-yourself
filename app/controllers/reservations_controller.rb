@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
 
     if @reservation.save 
       current_user.add_points(@reservation.points)
-      # UserMailer.reservation_confirmation(current_user).deliver
+      UserMailer.reservation_confirmation(current_user).deliver
       flash[:notice] = "Reservation created!"
       redirect_to @restaurant
     else
